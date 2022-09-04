@@ -1,5 +1,5 @@
 {
-  "name": "octane",
+  "name": "@team-kamo/ts-poc",
   "version": "0.0.1",
   "description": "Octane client library, written with TypeScript.",
   "main": "dist/index.js",
@@ -11,6 +11,9 @@
     "prepublishOnly": "npm run build",
     "prettier": "prettier src/* --write",
     "lint": "eslint src/*/*.ts src/models/*.ts src/*.ts"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/team-kamo"
   },
   "keywords": [],
   "author": "Team-Kamo",
