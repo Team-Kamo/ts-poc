@@ -1,6 +1,6 @@
 {
   "name": "@team-kamo/ts-poc",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Octane client library, written with TypeScript.",
   "main": "dist/index.js",
   "files": [
