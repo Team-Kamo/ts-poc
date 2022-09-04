@@ -1,6 +1,6 @@
 {
   "name": "@team-kamo/ts-poc",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Octane client library, written with TypeScript.",
   "main": "dist/index.js",
   "files": [
@@ -19,8 +19,7 @@
   "author": "Team-Kamo",
   "type": "module",
   "dependencies": {
-    "bignumber.js": "^9.1.0",
-    "json-bigint": "^1.0.0"
+    "json-parse-bigint": "^1.0.4"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.36.1",

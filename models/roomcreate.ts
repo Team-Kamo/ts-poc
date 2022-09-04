@@ -1,11 +1,10 @@
-import BigNumber from "../node_modules/bignumber.js/bignumber";
 
 const RoomCreateEndpoint = "room";
 
 class RoomCreate {
     id: bigint;
-    constructor(obj: { id: BigNumber }) {
-        this.id = BigInt(obj.id.toString());
+    constructor(obj: { id: string }) {
+        this.id = BigInt(obj.id);
     }
 }
 
