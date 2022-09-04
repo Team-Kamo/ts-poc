@@ -1,0 +1,29 @@
+{
+  "name": "octane",
+  "version": "0.0.1",
+  "description": "Octane client library, written with TypeScript.",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "prettier": "prettier src/* --write",
+    "lint": "eslint src/*/*.ts src/models/*.ts src/*.ts"
+  },
+  "keywords": [],
+  "author": "Team-Kamo",
+  "type": "module",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.1",
+    "bignumber.js": "^9.1.0",
+    "json-bigint": "^1.0.0",
+    "typescript": "^4.8.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.23.0",
+    "prettier": "^2.7.1"
+  }
+}
