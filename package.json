@@ -1,6 +1,6 @@
 {
   "name": "@team-kamo/ts-poc",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Octane client library, written with TypeScript.",
   "main": "dist/index.js",
   "files": [
@@ -9,7 +9,7 @@
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "pnpm build && pnpm postbuild",
-    "postbuild": "cp package.json pnpm-lock.yaml dist && cd dist && pnpm i -P",
+    "postbuild": "cp package.json dist && cd dist && npm i --omit dev",
     "prettier": "prettier src/* --write",
     "lint": "eslint src/*/*.ts src/models/*.ts src/*.ts"
   },
