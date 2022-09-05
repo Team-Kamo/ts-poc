@@ -4,7 +4,7 @@ import { RoomCreate, RoomCreateEndpoint } from "./models/roomcreate.js";
 import { RoomConnectRequest, RoomCreateRequest } from "./models/request.js";
 import { APIError, Faulty } from "./models/error.js";
 import { Room, RoomEndpoint } from "./models/room.js";
-import JsonParseBigInt from "./node_modules/json-parse-bigint/index.js";
+import * as json_parse_bigint from "./node_modules/json-parse-bigint/index.js";
 import { Status, StatusEndpoint } from "./models/status.js";
 
 class Client {
@@ -41,14 +41,14 @@ class Client {
         if (res.status != 200) {
             return new APIError(await res.json());
         }
-        return new RoomCreate(JsonParseBigInt(await res.text()));
+        return new RoomCreate(json_parse_bigint.default(await res.text()));
     }
     async GetRoom(id: bigint) {
         const res = await this.fetch.do(RoomEndpoint + id, "GET", undefined);
         if (res.status != 200) {
             return new APIError(await res.json());
         }
-        return new Room(await res.json());
+        return new Room(json_parse_bigint.default(await res.text()));
     }
     async ConnectRoom(id: bigint, obj: RoomConnectRequest) {
         const res = await this.fetch.do(RoomEndpoint + id, "POST", obj);
@@ -130,7 +130,7 @@ class Client {
         if (res.status != 200) {
             return new APIError(await res.json());
         }
-        return await res.blob();
+        return null;
     }
 }
 

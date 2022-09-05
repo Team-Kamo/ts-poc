@@ -9,12 +9,16 @@ const //Error
     ERR_CONTENT_MISMATCH = "ERR_CONTENT_MISMATCH", // Content crc hash or mime is wrong
     ERR_BAD_HASH = "ERR_BAD_HASH", // Hash style is wrong
     ERR_UNAUTHORIZED = "ERR_UNAUTHORIZED", // Bad token
+    ERR_BAD_MIME = "ERR_BAD_MIME", //Mime type is not accepted
     //Enum
     Faulty = "faulty",
     Degraded = "degraded",
     Healthy = "healthy",
     TypeClipboard = "clipboard",
-    TypeFile = "file";
+    TypeMultiFile = "multi-file",
+    TypeFile = "file",
+    MethodConnect = "connect",
+    MethodDisconnect = "disconnect";
 
 class APIError {
     code: string;

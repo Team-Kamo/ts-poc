@@ -1,7 +1,9 @@
 class RoomConnectRequest {
     name: string;
-    constructor(name: string) {
+    method: string;
+    constructor(name: string, method: string) {
         this.name = name;
+        this.method = method;
     }
 }
 
