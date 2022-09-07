@@ -11,28 +11,28 @@ class Client {
     apiKey: string;
     pathPrefix: string;
     fetch: Fetch;
-    timer: number;
+    timer: number | undefined;
     isAvailable: boolean;
     constructor(apiKey: string | string, pathPrefix: string | string) {
         this.apiKey = apiKey;
         this.pathPrefix = pathPrefix;
         this.fetch = new Fetch(this.apiKey, this.pathPrefix);
-        this.timer = setInterval(this.checkHealth, 1800);
         this.isAvailable = false;
-        this.checkHealth();
-    }
-    async checkHealth() {
-        const health = await this.GetHealth();
-        if (health instanceof Health && health.health != Faulty) {
-            this.isAvailable = true;
-        } else {
-            this.isAvailable = false;
-        }
+        this.timer = undefined;
+        this.GetHealth();
     }
     async GetHealth() {
+        if (this.timer === undefined) {
+            this.timer = setInterval(this.GetHealth, 1800);
+        }
         const res = await this.fetch.do(HealthEndpoint, "GET", undefined);
         if (res.status != 200) {
             return new APIError(await res.json());
+        }
+        if (res instanceof Health && res.health != Faulty) {
+            this.isAvailable = true;
+        } else {
+            this.isAvailable = false;
         }
         return new Health(await res.json());
     }
