@@ -23,7 +23,7 @@ class Client {
     }
     async GetHealth() {
         if (this.timer === undefined) {
-            this.timer = setInterval(this.GetHealth, 1800);
+            this.timer = setInterval(() => this.GetHealth(), 1800);
         }
         const res = await this.fetch.do(HealthEndpoint, "GET", undefined);
         if (res.status != 200) {
